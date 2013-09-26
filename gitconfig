@@ -1,0 +1,11 @@
+[user]
+	email = absynce@gmail.com
+	name = Jared M. Smith
+[push]
+	default = simple
+[color]
+	ui = true
+[merge]
+	ff = false
+[core]
+	editor = vim

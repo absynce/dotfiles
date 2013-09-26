@@ -1,7 +1,7 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "   Filename: .vimrc                                                         "
-" Maintainer: Michael J. Smalley <michaeljsmalley@gmail.com>                 "
-"        URL: http://github.com/michaeljsmalley/dotfiles                     "
+" Maintainer: Jared M. Smith (absynce@gmail.com)                             "
+"        URL: http://github.com/absynce/dotfiles                             "
 "                                                                            "
 "                                                                            "
 " Sections:                                                                  "
@@ -16,8 +16,21 @@
 " 01. General                                                                "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible         " get rid of Vi compatibility mode. SET FIRST!
+execute pathogen#infect()
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Used as a leader key for extra key combos
+let mapleader = ","
+
+" Fast saving
+nmap <leader>w :w<cr>
+nmap <leader>q :q<cr>
+
+" Move temp files to another folder
+set backupdir=~/.vim/tmp
+set dir      =~/.vim/tmp
+set directory=~/.vim/tmp
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 02. Events                                                                 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 filetype plugin indent on " filetype detection[ON] plugin[ON] indent[ON]
@@ -33,9 +46,10 @@ set ofu=syntaxcomplete#Complete
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 03. Theme/Colors                                                           "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set t_Co=256              " enable 256-color mode.
+"set t_Co=256              " enable 256-color mode.
 syntax enable             " enable syntax highlighting (previously syntax on).
-colorscheme molokai       " set colorscheme
+set background=dark
+colorscheme solarized     " set colorscheme
 
 " Prettify JSON files
 autocmd BufRead,BufNewFile *.json set filetype=json
@@ -61,6 +75,18 @@ set ruler                 " Always show info along bottom.
 set showmatch
 set statusline=%<%f\%h%m%r%=%-20.(line=%l\ \ col=%c%V\ \ totlin=%L%)\ \ \%h%m%r%=%-40(bytval=0x%B,%n%Y%)\%P
 
+"au WinLeave * set nocursorline nocursorcolumn
+"au WinEnter * set cursorline cursorcolumn
+"set cursorline cursorcolumn
+" Highlight cursor line.
+ augroup CursorLine
+     au!
+     au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+     au VimEnter,WinEnter,BufWinEnter * setlocal cursorcolumn
+     au WinLeave * setlocal nocursorline
+     au WinLeave * setlocal nocursorcolumn
+ augroup END
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 05. Text Formatting/Layout                                                 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -72,3 +98,27 @@ set shiftround            " always indent/outdent to the nearest tabstop
 set expandtab             " use spaces instead of tabs
 set smarttab              " use tabs at the start of a line, spaces elsewhere
 set nowrap                " don't wrap text
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 06. Folding                                                                "  
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set foldmethod=syntax
+set foldlevelstart=99
+set foldnestmax=5
+
+" Fold colors (to make it appear like dashes and 
+" not have a horrible background color).
+:hi Folded ctermfg=216
+:hi Folded ctermbg=255
+
+" Enables folding for javascript syntax.
+let javaScript_fold=1
+let ruby_fold=1
+let vimsyn_folding='af'
+let xml_syntax_folding=1
+let sh_fold_enabled=1
+
+" Easy top level folding
+map <leader>f :%foldc<cr>
+map <leader>o zR<cr>
+map <leader>r :setlocal foldlevel=1<cr>

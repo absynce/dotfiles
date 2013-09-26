@@ -8,7 +8,8 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="bashrc vimrc vim zshrc oh-my-zsh private scrotwm.conf Xresources"    # list of files/folders to symlink in homedir
+files="bashrc emacs gitconfig tmux.conf vimrc vim private"    # list of files/folders to symlink in homedir
+vim=~/.vim                        # vim directory
 
 ##########
 
@@ -22,10 +23,14 @@ echo -n "Changing to the $dir directory ..."
 cd $dir
 echo "done"
 
-# move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks from the homedir to any files in the ~/dotfiles directory specified in $files
+# move any existing dotfiles in homedir to dotfiles_old directory, then create 
+# symlinks from the homedir to any files in the ~/dotfiles directory specified 
+# in $files
 for file in $files; do
-    echo "Moving any existing dotfiles from ~ to $olddir"
-    mv ~/.$file ~/dotfiles_old/
+    if [ -f ~/.$file ]; then
+        echo "Moving any existing dotfiles from ~ to $olddir"
+        mv ~/.$file ~/dotfiles_old/
+    fi
     echo "Creating symlink to $file in home directory."
     ln -s $dir/$file ~/.$file
 done
@@ -56,4 +61,12 @@ else
 fi
 }
 
-install_zsh
+# Install pathogen
+mkdir -p ~/.vim/autoload ~/.vim/bundle
+curl -Sso ~/.vim/autoload/pathogen.vim \
+        https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+
+# Install Solarized theme
+cd $vim/bundle 
+git clone git://github.com/altercation/vim-colors-solarized.git
+
