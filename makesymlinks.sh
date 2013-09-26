@@ -70,3 +70,6 @@ curl -Sso ~/.vim/autoload/pathogen.vim \
 cd $vim/bundle 
 git clone git://github.com/altercation/vim-colors-solarized.git
 
+# Install Coffeescript support
+cd $vim/bundle
+git clone https://github.com/kchmck/vim-coffee-script.git 
