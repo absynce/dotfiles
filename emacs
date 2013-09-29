@@ -6,6 +6,12 @@
 (setq tab-width 4)
 (setq tab-stop-list (number-sequence 4 200 4))
  
+;; Show column numbers
+(setq column-number-mode t)
+
+;; Set font size
+(set-face-attribute 'default nil :height 110)
+
 ;; Tell emacs where is your personal elisp lib dir
 ;; this is default dir for extra packages
 (add-to-list 'load-path "~/.emacs.d/")
