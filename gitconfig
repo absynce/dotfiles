@@ -11,8 +11,8 @@
 	editor = vim
 [alias]
 	st = status
-    ci = commit
-    co = checkout
-    br = branch
-    df = diff
+        ci = commit
+        co = checkout
+        br = branch
+        df = diff
     
