@@ -22,15 +22,6 @@
 ;; load the stylus package.
 (load "stylus-mode") ;; best not to include the ending “.el” or “.elc”
 
-;; Load the solarized color theme.
-(add-to-list 'load-path "~/.emacs.d/emacs-color-theme-solarized")
-(require 'color-theme)
-(require 'color-theme-solarized)
-(eval-after-load "color-theme"
-  '(progn
-     (color-theme-initialize)
-     (color-theme-solarized-dark)))
-
 ;; Add node REPL
 (require 'js-comint)
 ;; Use node as our repl
@@ -52,13 +43,3 @@
             (imenu-add-menubar-index)
             ;; Activate the folding mode
             (hs-minor-mode t)))
-
-;; Marmalade repo
-(require 'package)
-(add-to-list 'package-archives
-             '("marmalade" .
-               "http://marmalade-repo.org/packages/"))
-(package-initialize)
-
-;; Initialize evil mode
-(evil-mode 1)
