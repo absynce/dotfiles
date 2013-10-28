@@ -8,8 +8,25 @@
         ("gnu" . "http://elpa.gnu.org/packages/")
         ("marmalade" . "http://marmalade-repo.org/packages/")))
     (package-refresh-contents)
+
     ;; Install solarized if it doesn't exist
     (when (not (require 'color-theme-solarized nil t))
       (package-install 'color-theme-solarized))
+
+    ;; Load the solarized color theme.
+    (add-to-list 'load-path "~/.emacs.d/emacs-color-theme-solarized")
+    (require 'color-theme)
+    (require 'color-theme-solarized)
+    (eval-after-load "color-theme"
+      '(progn
+         (color-theme-initialize)
+         (color-theme-solarized-dark)))
+
+    ;; Install evil-mode if it doesn't exist.
+    (when (not (require 'evil-mode nil t))
+      (package-install 'evil-mode))
+
+    ;; Initialize evil mode
+    (evil-mode 1)
   )
 )
