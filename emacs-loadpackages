@@ -1,6 +1,5 @@
 ;; Packages to install first (check if emacs is 24 or higher)
 (if (>= emacs-major-version 24)
-  (message 'Installing packages)
   (progn
   ;; Add a larger package list
     (setq package-archives '(
