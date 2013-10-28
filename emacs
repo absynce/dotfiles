@@ -1,3 +1,6 @@
+(add-hook 'after-init-hook '(lambda ()
+  (load "~/.emacs-loadpackages"))) ;; anything within the lambda will run after everything has initialized.
+
 (setq backup-directory-alist
 `(("." . "~/.emacs_backups")))
 

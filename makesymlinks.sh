@@ -8,8 +8,9 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="bashrc emacs gitconfig tmux.conf vimrc vim private"    # list of files/folders to symlink in homedir
+files="bashrc emacs emacs-loadpackages gitconfig tmux.conf vimrc vim private"    # list of files/folders to symlink in homedir
 vim=~/.vim                        # vim directory
+emacsD=~/.emacs.d                 # emacs package directory
 
 ##########
 
@@ -73,3 +74,8 @@ git clone git://github.com/altercation/vim-colors-solarized.git
 # Install Coffeescript support
 cd $vim/bundle
 git clone https://github.com/kchmck/vim-coffee-script.git 
+
+# Install stylus-mode and sws-mode for emacs
+cd $emacsD
+wget https://raw.github.com/brianc/jade-mode/master/stylus-mode.el 
+wget https://raw.github.com/brianc/jade-mode/master/sws-mode.el 
