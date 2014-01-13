@@ -109,3 +109,6 @@ function m() {
         echo Please specify the test you want to run, and optionally a grep argument.;
     fi
 }
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
