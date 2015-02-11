@@ -85,3 +85,8 @@ wget -nc https://raw.github.com/brianc/jade-mode/master/sws-mode.el
 # Clone emacs-color-theme-solarized from github.com/sellout/emacs-color-theme-solarized
 cd $emacsD
 git clone git@github.com:sellout/emacs-color-theme-solarized.git
+
+# Install undo-tree and evil
+# undo-tree - prereq for evil
+git clone http://www.dr-qubit.org/git/undo-tree.git
+git clone git://gitorious.org/evil/evil.git

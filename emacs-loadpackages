@@ -19,6 +19,10 @@
     ;; Load the solarized color theme.
     (load-theme 'solarized-dark t)
 
+    ;; Install coffee-mode if it doesn't exist.
+    (when (not (require 'coffee-mode nil t))
+      (package-install 'coffee-mode))
+
     ;; Install evil-mode if it doesn't exist.
     (when (not (require 'evil nil t))
       (package-install 'evil))
