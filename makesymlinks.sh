@@ -79,8 +79,8 @@ git clone https://github.com/kchmck/vim-coffee-script.git
 
 # Install stylus-mode and sws-mode for emacs
 cd $emacsD
-wget -nc https://raw.github.com/brianc/jade-mode/master/stylus-mode.el 
-wget -nc https://raw.github.com/brianc/jade-mode/master/sws-mode.el 
+wget --no-check-certificate https://raw.github.com/brianc/jade-mode/master/stylus-mode.el 
+wget --no-check-certificate https://raw.github.com/brianc/jade-mode/master/sws-mode.el 
 
 # Clone emacs-color-theme-solarized from github.com/sellout/emacs-color-theme-solarized
 cd $emacsD
