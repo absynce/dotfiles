@@ -4,7 +4,7 @@
 (setq backup-directory-alist
 `(("." . "~/.emacs_backups")))
 
- ;; Set emacs default indention to 4
+;; Set emacs default indention to 4
 (setq-default indent-tabs-mode nil)
 (setq tab-width 4)
 (setq tab-stop-list (number-sequence 4 200 4))
@@ -21,6 +21,11 @@
 
 ;; load the stylus package.
 (load "stylus-mode") ;; best not to include the ending “.el” or “.elc”
+
+;; load the evil mode package.
+(add-to-list 'load-path "~/.emacs.d/evil")
+(require `evil)
+(evil-mode 1)
 
 ;; Add node REPL
 (require 'js-comint)
@@ -43,3 +48,9 @@
             (imenu-add-menubar-index)
             ;; Activate the folding mode
             (hs-minor-mode t)))
+
+;; Tramp
+(require 'tramp)
+(tramp-set-completion-function "ssh"
+                               '((tramp-parse-sconfig "/etc/ssh_config")
+                                 (tramp-parse-sconfig "~/.ssh/config")))

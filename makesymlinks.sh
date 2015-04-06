@@ -75,7 +75,18 @@ git clone git://github.com/altercation/vim-colors-solarized.git
 cd $vim/bundle
 git clone https://github.com/kchmck/vim-coffee-script.git
 
+# Emacs install things
+
 # Install stylus-mode and sws-mode for emacs
 cd $emacsD
-wget --no-check-certificate https://raw.github.com/brianc/jade-mode/master/stylus-mode.el
-wget --no-check-certificate https://raw.github.com/brianc/jade-mode/master/sws-mode.el
+wget -nc --no-check-certificate https://raw.github.com/brianc/jade-mode/master/stylus-mode.el
+wget -nc --no-check-certificate https://raw.github.com/brianc/jade-mode/master/sws-mode.el
+
+# Clone emacs-color-theme-solarized from github.com/sellout/emacs-color-theme-solarized
+cd $emacsD
+git clone git@github.com:sellout/emacs-color-theme-solarized.git
+
+# Install undo-tree and evil
+# undo-tree - prereq for evil
+git clone http://www.dr-qubit.org/git/undo-tree.git
+git clone git://gitorious.org/evil/evil.git
