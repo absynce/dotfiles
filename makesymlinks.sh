@@ -8,7 +8,7 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="bashrc emacs emacs-loadpackages gitconfig tmux.conf vimrc vim private"    # list of files/folders to symlink in homedir
+files="atom/ bashrc emacs emacs-loadpackages gitconfig tmux.conf vimrc vim private"    # list of files/folders to symlink in homedir
 vim=~/.vim                        # vim directory
 emacsD=~/.emacs.d                 # emacs package directory
 
@@ -24,8 +24,8 @@ echo -n "Changing to the $dir directory ..."
 cd $dir
 echo "done"
 
-# move any existing dotfiles in homedir to dotfiles_old directory, then create 
-# symlinks from the homedir to any files in the ~/dotfiles directory specified 
+# move any existing dotfiles in homedir to dotfiles_old directory, then create
+# symlinks from the homedir to any files in the ~/dotfiles directory specified
 # in $files
 for file in $files; do
     if [ -f ~/.$file ]; then
@@ -68,14 +68,14 @@ curl -Sso ~/.vim/autoload/pathogen.vim \
         https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
 
 # Install Solarized theme
-cd $vim/bundle 
+cd $vim/bundle
 git clone git://github.com/altercation/vim-colors-solarized.git
 
 # Install Coffeescript support
 cd $vim/bundle
-git clone https://github.com/kchmck/vim-coffee-script.git 
+git clone https://github.com/kchmck/vim-coffee-script.git
 
 # Install stylus-mode and sws-mode for emacs
 cd $emacsD
-wget --no-check-certificate https://raw.github.com/brianc/jade-mode/master/stylus-mode.el 
-wget --no-check-certificate https://raw.github.com/brianc/jade-mode/master/sws-mode.el 
+wget --no-check-certificate https://raw.github.com/brianc/jade-mode/master/stylus-mode.el
+wget --no-check-certificate https://raw.github.com/brianc/jade-mode/master/sws-mode.el

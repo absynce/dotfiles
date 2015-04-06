@@ -3,3 +3,6 @@ vim/vim
 vim/.netrwhist
 chef/
 private
+atom/.apm/
+atom/packages/
+atom/storage/

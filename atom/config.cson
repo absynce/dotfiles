@@ -1,0 +1,16 @@
+"*":
+  editor:
+    invisibles: {}
+    showInvisibles: true
+    showIndentGuide: true
+  core:
+    themes: [
+      "atom-dark-ui"
+      "solarized-dark-syntax"
+    ]
+    autoHideMenuBar: true
+  "exception-reporting":
+    userId: "5e0d2790-79c0-db62-319a-a88761a7ce1f"
+  welcome:
+    showOnStartup: false
+  "tree-view": {}
