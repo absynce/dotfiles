@@ -7,16 +7,17 @@
 ########## Variables
 
 dir=~/dotfiles                    # dotfiles directory
-olddir=~/dotfiles_old             # old dotfiles backup directory
-files="atom/ bashrc emacs emacs-loadpackages gitconfig tmux.conf vimrc vim private"    # list of files/folders to symlink in homedir
+oldDir=~/dotfiles-$(date +"%Y.%m.%d")-bak # old dotfiles backup directory
+files="atom bashrc emacs emacs-loadpackages gitconfig tmux.conf vimrc vim private"    # list of files/folders to symlink in homedir
 vim=~/.vim                        # vim directory
 emacsD=~/.emacs.d                 # emacs package directory
+atomDirectory=~/.atom             # atom directory
 
 ##########
 
 # create dotfiles_old in homedir
-echo -n "Creating $olddir for backup of any existing dotfiles in ~ ..."
-mkdir -p $olddir
+echo -n "Creating $oldDir for backup of any existing dotfiles in ~ ..."
+mkdir -p $oldDir
 echo "done"
 
 # change to the dotfiles directory
@@ -29,12 +30,16 @@ echo "done"
 # in $files
 for file in $files; do
     if [ -f ~/.$file ]; then
-        echo "Moving any existing dotfiles from ~ to $olddir"
-        mv ~/.$file ~/dotfiles_old/
+        echo "Moving existing dotfile .$file from ~$dir/ to $oldDir/"
+        mv ~/.$file $oldDir/
+    elif [ -d ~/.$file ]; then
+        echo "Moving existing directory .$file from ~$dir/ to $oldDir/"
+        mv ~/.$file/ $oldDir/
     fi
     echo "Creating symlink to $file in home directory."
     ln -s $dir/$file ~/.$file
 done
+
 
 function install_zsh {
 # Test to see if zshell is installed.  If it is:
@@ -90,3 +95,12 @@ git clone git@github.com:sellout/emacs-color-theme-solarized.git
 # undo-tree - prereq for evil
 git clone http://www.dr-qubit.org/git/undo-tree.git
 git clone git://gitorious.org/evil/evil.git
+
+####### Atom Install #########
+cinst Atom # Windows only
+# Linux
+# TODO: Try http://askubuntu.com/a/630530/168577
+
+# Install atom packages
+cd $atomDirectory
+apm install --packages-file package.list

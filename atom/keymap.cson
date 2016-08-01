@@ -23,3 +23,9 @@
 # This file uses CoffeeScript Object Notation (CSON).
 # If you are unfamiliar with CSON, you can read more about it here:
 # https://github.com/bevry/cson#what-is-cson
+
+'atom-workspace atom-text-editor:not([mini])':
+  'ctrl-m ctrl-o': 'editor:fold-all'
+
+'.platform-win32, .platform-linux':
+  'ctrl-0': 'tree-view:toggle-focus'

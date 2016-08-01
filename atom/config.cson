@@ -1,16 +1,37 @@
 "*":
-  editor:
-    invisibles: {}
-    showInvisibles: true
-    showIndentGuide: true
+  "atom-beautify":
+    general:
+      _analyticsUserId: "b1ec2602-c90d-435c-b63c-a129ad688702"
+    js:
+      space_after_anon_function: true
+    json:
+      indent_size: 2
   core:
+    autoHideMenuBar: true
+    disabledPackages: [
+      "json-schema"
+      "seti-icons"
+      "file-icons"
+    ]
     themes: [
       "atom-dark-ui"
       "solarized-dark-syntax"
     ]
-    autoHideMenuBar: true
+  editor:
+    fontSize: 13
+    invisibles: {}
+    showIndentGuide: true
+    showInvisibles: true
+    tabType: "soft"
   "exception-reporting":
     userId: "5e0d2790-79c0-db62-319a-a88761a7ce1f"
+  "markdown-preview":
+    useGitHubStyle: true
+  "terminal-panel": {}
+  "tree-view": {}
   welcome:
     showOnStartup: false
-  "tree-view": {}
+".plain.text":
+  editor:
+    softWrap: true
+    softWrapAtPreferredLineLength: true
