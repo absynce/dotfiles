@@ -29,3 +29,6 @@
 
 '.platform-win32, .platform-linux':
   'ctrl-0': 'tree-view:toggle-focus'
+
+'body':
+  'ctrl-alt-w': 'pane:close-other-items'
