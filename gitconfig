@@ -1,18 +1,22 @@
 [user]
-	email = absynce@gmail.com
-	name = Jared M. Smith
+   email = absynce@gmail.com
+   name = Jared M. Smith
 [push]
-	default = simple
+   default = simple
 [color]
-	ui = true
+   ui = true
 [merge]
-	ff = false
+   ff = false
 [core]
-	editor = vim
+   editor = vim
 [alias]
-	st = status
-        ci = commit
-        co = checkout
-        br = branch
-        df = diff
-    
+   st = status --short --branch # From https://hackernoon.com/lesser-known-git-commands-151a1918a60
+   lg = log --abbrev-commit --decorate --all --format=format:"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) - %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n\_ %C(white)%s%C(reset)"
+   ci = commit
+   co = checkout
+   br = branch
+   df = diff
+   up = !git pull --rebase --prune $@ && git submodule update --init --recursive
+   # From http://haacked.com/archive/2014/07/28/github-flow-aliases/
+   bclean = "!f() { git branch --merged ${1-develop} | grep -vE '(develop|master)' | xargs -r git branch -d; }; f"
+   bdone = "!f() { git checkout ${1-develop} && git up && git bclean ${1-develop}; }; f"
