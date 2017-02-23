@@ -8,9 +8,8 @@
 
 dir=~/dotfiles                    # dotfiles directory
 oldDir=~/dotfiles-$(date +"%Y.%m.%d")-bak # old dotfiles backup directory
-files="atom bashrc emacs emacs-loadpackages gitconfig tmux.conf vimrc vim private"    # list of files/folders to symlink in homedir
+files="atom bashrc gitconfig tmux.conf vimrc vim private"    # list of files/folders to symlink in homedir
 vim=~/.vim                        # vim directory
-emacsD=~/.emacs.d                 # emacs package directory
 atomDirectory=~/.atom             # atom directory
 
 ##########
@@ -60,11 +59,22 @@ else
         sudo apt-get install zsh
         install_zsh
     # If the platform is OS X, tell the user to install zsh :)
-    elif [[ $platform == 'Darwin' ]]; then
+    else
         echo "Please install zsh, then re-run this script!"
         exit
     fi
 fi
+}
+
+function isInstalled {
+    name=$1
+    if ! which $name > /dev/null; then
+        # echo "$name : not installed"
+        return 1
+    else
+        # echo "$name : installed"
+        return 0
+    fi
 }
 
 # Install pathogen
@@ -80,27 +90,16 @@ git clone git://github.com/altercation/vim-colors-solarized.git
 cd $vim/bundle
 git clone https://github.com/kchmck/vim-coffee-script.git
 
-# Emacs install things
-
-# Install stylus-mode and sws-mode for emacs
-cd $emacsD
-wget -nc --no-check-certificate https://raw.github.com/brianc/jade-mode/master/stylus-mode.el
-wget -nc --no-check-certificate https://raw.github.com/brianc/jade-mode/master/sws-mode.el
-
-# Clone emacs-color-theme-solarized from github.com/sellout/emacs-color-theme-solarized
-cd $emacsD
-git clone git@github.com:sellout/emacs-color-theme-solarized.git
-
-# Install undo-tree and evil
-# undo-tree - prereq for evil
-git clone http://www.dr-qubit.org/git/undo-tree.git
-git clone git://gitorious.org/evil/evil.git
-
 ####### Atom Install #########
-cinst Atom # Windows only
+if ! isInstalled "atom" ; then
+    echo "atom not installed"
+# cinst Atom # Windows only
+fi
 # Linux
 # TODO: Try http://askubuntu.com/a/630530/168577
 
 # Install atom packages
-cd $atomDirectory
-apm install --packages-file package.list
+if isInstalled "atom"; then
+    cd $atomDirectory
+    apm install --packages-file package.list
+fi
