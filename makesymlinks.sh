@@ -8,7 +8,7 @@
 
 dir=~/dotfiles                    # dotfiles directory
 oldDir=~/dotfiles-$(date +"%Y.%m.%d")-bak # old dotfiles backup directory
-files="atom bashrc gitconfig tmux.conf vimrc vim private"    # list of files/folders to symlink in homedir
+files="atom bashrc gitconfig tmux.conf vimrc vim private zshrc oh-my-zsh"    # list of files/folders to symlink in homedir
 vim=~/.vim                        # vim directory
 atomDirectory=~/.atom             # atom directory
 
@@ -43,9 +43,20 @@ done
 function install_zsh {
 # Test to see if zshell is installed.  If it is:
 if [ -f /bin/zsh -o -f /usr/bin/zsh ]; then
-    # Clone my oh-my-zsh repository from GitHub only if it isn't already present
+    # Get oh-my-zsh repository from GitHub only if it isn't already present
     if [[ ! -d $dir/oh-my-zsh/ ]]; then
-        git clone http://github.com/michaeljsmalley/oh-my-zsh.git
+        git clone http://github.com/robbyrussell/oh-my-zsh.git
+        # Install oh-my-zsh plugins
+        # Install zsh-nvm plugin
+        git clone https://github.com/lukechilds/zsh-nvm $dir/oh-my-zsh/custom/plugins/zsh-nvm
+
+        # TODO: somehow change to zsh and run these.
+        # nvm install node
+
+        # Install oh-my-zsh theme(s)
+        # npm i -g lambda-pure-prompt
+        # mkdir -p $dir/oh-my-zsh/custom/themes
+        # curl -o  $dir/oh-my-zsh/custom/themes/lambda-pure.zsh-theme https://raw.githubusercontent.com/marszall87/lambda-pure/master/lambda-pure.zsh
     fi
     # Set the default shell to zsh if it isn't currently set to zsh
     if [[ ! $(echo $SHELL) == $(which zsh) ]]; then
@@ -58,7 +69,7 @@ else
     if [[ $platform == 'Linux' ]]; then
         sudo apt-get install zsh
         install_zsh
-    # If the platform is OS X, tell the user to install zsh :)
+    # If the platform is not supported, tell the user to install zsh :)
     else
         echo "Please install zsh, then re-run this script!"
         exit
@@ -78,9 +89,8 @@ function isInstalled {
 }
 
 # Install pathogen
-mkdir -p ~/.vim/autoload ~/.vim/bundle
-curl -Sso ~/.vim/autoload/pathogen.vim \
-        https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+mkdir -p $vim/autoload $vim/bundle
+curl -L -Sso $vim/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
 
 # Install Solarized theme
 cd $vim/bundle

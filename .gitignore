@@ -1,4 +1,6 @@
 oh-my-zsh/
+vim/autoload/
+vim/bundle/
 vim/vim
 vim/.netrwhist
 chef/
