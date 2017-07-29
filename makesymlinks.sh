@@ -55,6 +55,9 @@ if [ -f /bin/zsh -o -f /usr/bin/zsh ]; then
 
         # Install oh-my-zsh theme(s)
         # npm i -g lambda-pure-prompt
+        # ln -s "$PWD/lambda-pure.zsh" ~/.oh-my-zsh/functions/prompt_lambda-pure_setup
+        # ln -s "$PWD/async.zsh" ~/.oh-my-zsh/functions/async
+        # cd ~/.nvm/versions/node/v7.7.4/lib/node_modules/lambda-pure-prompt
         # mkdir -p $dir/oh-my-zsh/custom/themes
         # curl -o  $dir/oh-my-zsh/custom/themes/lambda-pure.zsh-theme https://raw.githubusercontent.com/marszall87/lambda-pure/master/lambda-pure.zsh
     fi
@@ -109,7 +112,7 @@ fi
 # TODO: Try http://askubuntu.com/a/630530/168577
 
 # Install atom packages
-if isInstalled "atom"; then
-    cd $atomDirectory
-    apm install --packages-file package.list
-fi
+# if isInstalled "atom"; then
+#     cd $atomDirectory
+#     apm install --packages-file package.list
+# fi
