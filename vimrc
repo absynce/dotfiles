@@ -26,6 +26,7 @@ nmap <leader>w :w<cr>
 nmap <leader>q :q<cr>
 
 " Move temp files to another folder
+:set backupcopy=yes
 set backupdir=~/.vim/tmp
 set dir      =~/.vim/tmp
 set directory=~/.vim/tmp
@@ -100,13 +101,13 @@ set smarttab              " use tabs at the start of a line, spaces elsewhere
 set nowrap                " don't wrap text
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 06. Folding                                                                "  
+" 06. Folding                                                                "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set foldmethod=syntax
 set foldlevelstart=99
 set foldnestmax=5
 
-" Fold colors (to make it appear like dashes and 
+" Fold colors (to make it appear like dashes and
 " not have a horrible background color).
 :hi Folded ctermfg=216
 :hi Folded ctermbg=255

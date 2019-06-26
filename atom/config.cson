@@ -6,6 +6,10 @@
       space_after_anon_function: true
     json:
       indent_size: 2
+  "atom-ide-ui":
+    "atom-ide-diagnostics-ui":
+      autoVisibility: true
+    use: {}
   core:
     autoHideMenuBar: true
     disabledPackages: [
@@ -15,27 +19,48 @@
       "vim-mode-visual-block"
       "hidpi"
       "omnisharp-atom"
+      "linter"
+      "linter-elm-make"
+      "markdown-preview"
+      "python-black"
     ]
     telemetryConsent: "limited"
     themes: [
-      "solarized-seti-ui"
+      "one-dark-ui"
       "solarized-dark-syntax"
     ]
   editor:
+    fontSize: 18
     invisibles: {}
     showIndentGuide: true
     showInvisibles: true
+    tabLength: 4
     tabType: "soft"
+  elmjutsu:
+    cacheDirectory: "/tmp/elmjutsu25672S0WfV7O54MpS"
   "exception-reporting":
     userId: "5e0d2790-79c0-db62-319a-a88761a7ce1f"
+  "language-elm":
+    autocompleteEnabled: false
   linter:
     lintOnChange: false
+  "linter-elm-make":
+    useDatatips: true
   "linter-ui-default":
-    showPanel: true
+    panelHeight: 324
   "markdown-preview":
     useGitHubStyle: true
+  "markdown-table-editor": {}
+  "prettier-atom":
+    formatOnSaveOptions:
+      enabled: true
+    prettierOptions:
+      singleQuote: true
+  "python-black":
+    binPath: "/home/absynce/env/bin/black"
   "terminal-panel": {}
-  "tree-view": {}
+  "tree-view":
+    hideVcsIgnoredFiles: true
   "vim-mode-plus":
     useClipboardAsDefaultRegister: true
   welcome:

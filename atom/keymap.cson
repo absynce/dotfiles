@@ -26,9 +26,33 @@
 
 'atom-workspace atom-text-editor:not([mini])':
   'ctrl-m ctrl-o': 'editor:fold-all'
+  'ctrl-shift-z': 'zen:toggle'
 
 '.platform-win32, .platform-linux':
   'ctrl-0': 'tree-view:toggle-focus'
 
 'body':
   'ctrl-alt-w': 'pane:close-other-items'
+
+# elmjutsu
+'atom-text-editor:not([mini])[data-grammar^="source elm"]':
+  'f12': 'elmjutsu:go-to-definition'
+  'ctrl-r': 'elmjutsu:go-to-symbol'
+  'shift-f12': 'elmjutsu:find-usages'
+  'f8': 'elmjutsu:go-to-next-usage'
+  'shift-f8': 'elmjutsu:go-to-previous-usage'
+  'ctrl-f12': 'elmjutsu:go-back'
+  'alt-enter': 'elmjutsu:add-import'
+  'f2': 'elmjutsu:rename-symbol'
+  'alt-shift-l': 'elmjutsu:surround-with-let'
+  'alt-l': 'elmjutsu:lift-to-let'
+  'alt-t': 'elmjutsu:lift-to-top-level'
+  'alt-i': 'elmjutsu:infer-type'
+
+'atom-workspace':
+  'f1': 'elmjutsu:toggle-sidekick'
+  'ctrl-shift-f12': 'elmjutsu:hide-usages-panel'
+
+'body.platform-win32, .platform-linux':
+  'cmd-tab': 'pane:show-next-recently-used-item'
+  'cmd-tab ^cmd': 'pane:move-active-item-to-top-of-stack'

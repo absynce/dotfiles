@@ -16,3 +16,77 @@
 # This file uses CoffeeScript Object Notation (CSON).
 # If you are unfamiliar with CSON, you can read more about it here:
 # https://github.com/bevry/cson#what-is-cson
+
+'.source.elm':
+  'Elm Program Skeleton':
+    'prefix': 'elmapp'
+    'body': """
+module $1 exposing (main)
+
+import Browser
+import Html exposing (..)
+import Html.Attributes exposing (..)
+import Html.Events exposing (..)
+
+
+main : Program () Model Msg
+main =
+    Browser.element
+        { init = init
+        , view = view
+        , update = update
+        , subscriptions = subscriptions
+        }
+
+
+
+-- Model
+
+
+type alias Model =
+    String
+
+
+
+-- Init
+
+
+init : () -> ( Model, Cmd Msg )
+init flags =
+    ( ""
+    , Cmd.none
+    )
+
+
+
+-- View
+
+
+view : Model -> Html Msg
+view model =
+    Html.text "Hello, World!"
+
+
+
+-- Update
+
+
+type Msg
+    = NoOp
+
+
+update : Msg -> Model -> ( Model, Cmd Msg )
+update msg model =
+    case msg of
+        NoOp ->
+            ( model, Cmd.none )
+
+
+
+-- Subscriptions
+
+
+subscriptions : Model -> Sub Msg
+subscriptions model =
+    Sub.none
+"""
