@@ -21,3 +21,4 @@
    bclean = "!f() { git branch --merged ${1-develop} | grep -vE '(develop|master)' | xargs -r git branch -d; }; f"
    bdone = "!f() { git checkout ${1-develop} && git up && git bclean ${1-develop}; }; f"
    grog = log --graph --abbrev-commit --decorate --all --format=format:\"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) - %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n\\_ %C(white)%s%C(reset)\"
+	hist = log --pretty=format:'%C(yellow)[%ad]%C(reset) %C(green)[%h]%C(reset) | %C(red)%s %C(bold red){{%an}}%C(reset) %C(blue)%d%C(reset)' --graph --date=short
