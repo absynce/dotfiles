@@ -30,6 +30,7 @@
       "solarized-dark-syntax"
     ]
   editor:
+    fontFamily: "Fira Code"
     fontSize: 18
     invisibles: {}
     showIndentGuide: true

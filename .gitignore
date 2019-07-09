@@ -3,9 +3,16 @@ vim/autoload/
 vim/bundle/
 vim/vim
 vim/.netrwhist
+vim-coffee-script/
+vim-colors-solarized/
 chef/
 private
 atom/.apm/
+atom/.atom-socket*
+atom/atom
 atom/packages/
+atom/recovery/*
 atom/storage/
 atom/blob-store/
+
+.DS_Store

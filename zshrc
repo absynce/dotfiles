@@ -2,7 +2,16 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/home/absynce/.oh-my-zsh
+platform=$(uname);
+# If the platform is Linux, try an apt-get to install zsh and then recurse
+if [[ $platform == 'Linux' ]]; then
+    home="home"
+# If the platform is not supported, tell the user to install zsh :)
+else
+    home="Users"
+fi
+
+export ZSH=/$home/absynce/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -89,3 +98,7 @@ fi
 # autoload
 autoload -U promptinit; promptinit
 prompt lambda-pure
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+export PATH="/usr/local/lib/ruby/gems/2.6.0/bin:$PATH"
