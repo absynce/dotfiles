@@ -3,7 +3,11 @@
 ## macOS changes
 
 ### Apps
-1. Install iTerm2
+
+#### Install iTerm2
+
+[Guake-like dropdown](https://apple.stackexchange.com/a/48805/51974)
+[Simpler Guake-like dropdown with hide from dock](https://stackoverflow.com/a/62573164/448876)
 
 ### Keyboard shortcuts
 
